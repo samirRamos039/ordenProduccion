@@ -12,6 +12,7 @@ import lombok.*;
 @Table(name = "usuarios")
 @Getter
 @Setter
+@AllArgsConstructor
 public class usuarios {
     
     @Id
