@@ -3,11 +3,9 @@ package com.example.produccion.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.produccion.models.usuarios;
+import com.example.produccion.models.materiaP;
 
 @Repository
-public interface userRepository extends CrudRepository<usuarios, Integer>{
-
-    
+public interface materiRepository extends CrudRepository<materiaP, Integer>{
     
 }
