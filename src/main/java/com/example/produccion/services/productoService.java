@@ -19,5 +19,13 @@ public class productoService {
     public producto saveProduct(producto produ){
         return productoRepository.save(produ);
     }
+
+    public producto updateUsers(producto produc){
+        return productoRepository.save(produc);
+    }
+
+    public void delectUser(int id){
+        productoRepository.deleteById(id);
+    }
    
 }

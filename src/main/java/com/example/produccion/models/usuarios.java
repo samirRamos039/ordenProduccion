@@ -13,6 +13,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class usuarios {
     
     @Id

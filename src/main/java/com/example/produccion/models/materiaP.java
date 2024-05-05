@@ -1,5 +1,4 @@
 package com.example.produccion.models;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,10 +17,12 @@ public class materiaP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    int id;
-    float ancho;
-    float calibre;
-    float kilos;
-    int cantidad;
+    private int id;
+    private float ancho;
+    private float calibre;
+    private float kilos;
+    private int cantidad;
+    
+    
     
 }

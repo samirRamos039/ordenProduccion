@@ -19,4 +19,12 @@ public class inventarioService {
     public inventario saveInventario(inventario inventa){
         return inventarioRepository.save(inventa);
     }
+
+    public inventario updateUsers(inventario inventa){
+        return inventarioRepository.save(inventa);
+    }
+
+    public void delectUser(int id){
+        inventarioRepository.deleteById(id);
+    }
 }

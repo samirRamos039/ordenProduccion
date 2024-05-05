@@ -13,15 +13,19 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class inventario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    long id;
-    String nombre;
-    int cantidad;
-    float kilos;
-    String descripcion;
+    private long id;
+    private String nombre;
+    private int cantidad;
+    private float kilos;
+    private String descripcion;
+
+    
+   
 
 }
