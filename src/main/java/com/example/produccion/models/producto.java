@@ -25,4 +25,5 @@ public class producto {
     String descripcion;
     float calibre;
     
+    
 }

@@ -20,5 +20,13 @@ public class materiService {
     public materiaP saveMateria(materiaP materia){
         return materiRepository.save(materia);
     }
+
+    public materiaP updateMateria(materiaP materia){
+        return materiRepository.save(materia);
+    }
+
+    public void delectMateria(int id){
+        materiRepository.deleteById(id);
+    }
     
 }
