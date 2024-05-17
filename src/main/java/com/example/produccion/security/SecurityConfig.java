@@ -24,7 +24,7 @@ public class SecurityConfig {
 					session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 				 })
 				 .httpBasic(null)
-				 
+				 .and()
 				 .build();
 	}
 
@@ -35,8 +35,20 @@ public class SecurityConfig {
 		    .password("1234")
 			.role()
 			.build());
+
+		return manager;	
+	}
+    @Bean
+	PaswordEncoder paswordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
 	}
 
     @Bean
-	AuthenticationManger autenticationManager(HttpSecurity httpSecurity){}
+	AuthenticationManager autenticationManager(HttpSecurity httpSecurity, PaswordEncoder paswordEncoder)throws Exception{
+		retrurn httpSecurity.getSharedObject(AuthenticationMangerBuilder.class)
+		         .userDetailsService(userDetailsService())
+				 .paswordEncoder(paswordEncoder)
+				 .and()
+				 .build()
+	}
 }
