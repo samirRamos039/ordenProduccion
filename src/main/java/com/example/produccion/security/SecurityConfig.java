@@ -28,5 +28,15 @@ public class SecurityConfig {
 				 .build();
 	}
 
+	@Bean
+	UserDetailServer UserDetailServer(){
+		InMemoryDetailsManager manager = InMemoryDetailsManager();
+		manager.createUser(User.withUsername("samir")
+		    .password("1234")
+			.role()
+			.build());
+	}
 
+    @Bean
+	AuthenticationManger autenticationManager(HttpSecurity httpSecurity){}
 }
