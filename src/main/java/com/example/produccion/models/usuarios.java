@@ -29,7 +29,7 @@ public class usuarios {
     private boolean credentialNoExpired;
     
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "roles", joinColumns = @JoinColumns(name = "userId", inverseJoinColumns = @JoinColumns(name = "rolId")))
+    @JoinTable(name = "rolUser", joinColumns = @JoinColumns(name = "userId", inverseJoinColumns = @JoinColumns(name = "rolId")))
     private set<roles> roles = new HshSet<>();
 
 }

@@ -18,7 +18,7 @@ public class roles {
     private RoleEnum roleEnum;
     
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "permisos", joinColumns = @JoinColumns(name = "rolId", inverseJoinColumns = @JoinColumns(name = "permisoId")))
+    @JoinTable(name = "rolPermisos", joinColumns = @JoinColumns(name = "rolId", inverseJoinColumns = @JoinColumns(name = "permisoId")))
     private set<permisos> permiso = new HashSet<>();
 
 }
