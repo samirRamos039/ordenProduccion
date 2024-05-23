@@ -32,7 +32,7 @@ public class SecurityConfig {
 				 .sessionManagement(session -> {
 					session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 				 })
-				 .httpBasic(null)
+				 .httpBasic(Cuatomizer.whitDefaults())
 				 
 				 .build();
 	}
