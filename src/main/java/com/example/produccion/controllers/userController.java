@@ -19,14 +19,18 @@ public class userController {
 
     @Autowired
     usuaservi userServices;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping
     public ArrayList<usuarios> getUser(){
         return userServices.getUsers();
     }
 
+    
     @PostMapping
     public usuarios postUser(@RequestBody usuarios user){
+        user.setPassword(PasswordEncoder.encode(user.getPassword()))
         return this.userServices.saveUsers(user);
 
     }
