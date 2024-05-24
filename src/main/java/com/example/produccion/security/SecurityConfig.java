@@ -19,7 +19,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
+    @Aitowired
+	private UserDS userDS;
 	@Bean 	
 	public SecurityFilterChain SecurityFilterChain(HttpSecurity HttpSecurity)
 			throws Exception {
@@ -39,14 +40,7 @@ public class SecurityConfig {
 
 	@Bean
 	UserDetailsService UserDetailsService(){
-		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(User.withUsername("samir")
-		    .password("1234")
-			.roles()
-			
-			.build());
-
-		return manager;	
+		return userDS;	
 	}
     
 	@Bean

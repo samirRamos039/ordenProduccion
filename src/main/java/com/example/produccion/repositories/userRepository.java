@@ -8,6 +8,6 @@ import com.example.produccion.models.usuarios;
 @Repository
 public interface userRepository extends CrudRepository<usuarios, Integer>{
 
-    
+    Optional<usuario> findByUsername(String username);
     
 }

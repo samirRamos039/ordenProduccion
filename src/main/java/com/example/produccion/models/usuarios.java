@@ -23,13 +23,7 @@ public class usuarios {
     private int id;
     private String nombre;
     private String password;
-    private boolean isEnabled;
-    private boolean accountNoExpired;
-    private boolean accountNoLocked;
-    private boolean credentialNoExpired;
+    private String role;
     
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "rolUser", joinColumns = @JoinColumns(name = "userId", inverseJoinColumns = @JoinColumns(name = "rolId")))
-    private set<roles> roles = new HshSet<>();
 
 }
