@@ -1,4 +1,4 @@
-
+/* 
 @Component
 public class jwt{
    
@@ -53,4 +53,4 @@ public class jwt{
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return keys.hmacShakeyFor(keyBytes);
     }
-}
+}*/
