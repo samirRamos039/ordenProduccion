@@ -1,32 +1,40 @@
+package com.example.produccion.security;
 
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import com.example.produccion.repositories.userRepository;
+import com.example.produccion.models.usuarios;
 
-
-@userServices
+@Service
 public class UserDS implements UserDetailsService {
     
     @Autowired
     private userRepository userRepository;
 
     @Overrride
-    public UserDatail loadUserByUsername(String username) throws UsernameNotFoundExeption{
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         Optional <usuarios> users = userRepository.findByUsername(username);
 
         if(users.isPresent()){
            var userObj = users.get();
-           return User.bulder()
-                      .username(userObj.getUsername())
+           return User.builder()
+                      .username(userObj.getNombre())
                       .password(userObj.getPassword())
-                      .role(getRoles(userObj))
+                      .roles(getR(userObj))
                       .build();
-        } ekse {
-            throw new UsernameNotFoundExeption(username)
-        }
-
-        private String[] getRole(usuarios users){
-            if(users.getRole()== null){
-                return new String[]{"USER"};
-            }
-            return users.getRole().split(",")
+        } else {
+            throw new UsernameNotFoundException(username);
         }
     }
+
+    private String[] getR(usuarios myUser){
+            if(myUser.getRole()== null){
+                return new String[]{"USER"};
+            }
+        
+            return myUser.getRole().split(",");
+        }
 }
