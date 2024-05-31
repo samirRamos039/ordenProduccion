@@ -2,6 +2,7 @@ package com.example.produccion.controllers;
 
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +31,7 @@ public class userController {
     
     @PostMapping
     public usuarios postUser(@RequestBody usuarios user){
-        user.setPassword(PasswordEncoder.encode(user.getPassword()))
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return this.userServices.saveUsers(user);
 
     }
