@@ -19,7 +19,7 @@ import com.example.produccion.services.usuaservi;
 public class userController {
 
     @Autowired
-    usuaservi userServices;
+    private usuaservi userServices;
     @Autowired
     private PasswordEncoder passwordEncoder;
 

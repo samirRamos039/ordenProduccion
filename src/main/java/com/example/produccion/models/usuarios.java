@@ -21,7 +21,7 @@ public class usuarios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private int id;
-    private String nombre;
+    private String username;
     private String password;
     private String role;
     

@@ -15,18 +15,18 @@ public class UserDS implements UserDetailsService {
     private userRepository userRepository;
 
     @Overrride
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        Optional <usuarios> users = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException{
+        Optional <usuarios> users = userRepository.findByUsername(nombre);
 
         if(users.isPresent()){
            var userObj = users.get();
            return User.builder()
-                      .username(userObj.getNombre())
+                      .username(userObj.getUsername())
                       .password(userObj.getPassword())
                       .roles(getR(userObj))
                       .build();
         } else {
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(nombre);
         }
     }
 

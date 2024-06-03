@@ -14,6 +14,7 @@ public class usuaservi {
 
     public ArrayList<usuarios> getUsers(){
         return (ArrayList<usuarios>) userRepository.findAll();
+        
     }
 
     public usuarios saveUsers(usuarios user){
