@@ -29,6 +29,7 @@ public class SecurityConfig {
 				 .csrf(config -> config.disable())
 				 .authorizeHttpRequests(auth -> {
 					auth.requestMatchers("/usuario").permitAll();
+					auth.requestMatchers("/inventario","/producto").hasRole("ADMIN");
 					auth.anyRequest().authenticated();
 				 })
 				 .sessionManagement(session -> {
