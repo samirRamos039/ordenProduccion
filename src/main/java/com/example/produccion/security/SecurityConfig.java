@@ -4,6 +4,7 @@ package com.example.produccion.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,8 +29,8 @@ public class SecurityConfig {
 				return HttpSecurity
 				 .csrf(config -> config.disable())
 				 .authorizeHttpRequests(auth -> {
-					auth.requestMatchers("/usuario").permitAll();
-					auth.requestMatchers("/inventario","/producto").hasRole("ADMIN");
+					auth.requestMatchers(HttpMethod.GET,"/usuario","/producto").permitAll();
+					auth.requestMatchers("/inventario").hasRole("ADMIN");
 					auth.anyRequest().authenticated();
 				 })
 				 .sessionManagement(session -> {
